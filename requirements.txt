@@ -1,0 +1,15 @@
+# Runtime 100% local: ONNX no lugar de torch (leve o suficiente para CPU/RAM modesta)
+onnxruntime>=1.17
+tokenizers>=0.15
+numpy>=1.26
+pypdf>=4.0
+fonttools>=4.50       # elimina avisos do pypdf em PDFs com fontes Type1
+python-docx>=1.1
+huggingface_hub>=0.20  # só para baixar o modelo uma vez (setup_modelo.py)
+
+# UI Spotlight
+customtkinter>=5.2
+pynput>=1.7            # atalho global Ctrl+Espaço
+
+# build do executável (só no ambiente de release):
+#   pip install pyinstaller
