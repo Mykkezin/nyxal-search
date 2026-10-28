@@ -12,8 +12,11 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install pyinstaller customtkinter pynput
+      - name: Download model
+        run: python src/setup_modelo.py
       - name: Build EXE
-        run: pyinstaller --onefile --windowed --name "NyxalSearch" --add-data "models/minilm;models/minilm" --collect-data customtkinter src/main.py
+        run: |
+          pyinstaller --onefile --windowed --name "NyxalSearch" --collect-data customtkinter --collect-all sentence_transformers --collect-all onnxruntime src/main.py
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
